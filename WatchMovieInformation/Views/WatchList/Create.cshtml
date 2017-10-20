@@ -1,0 +1,29 @@
+﻿@model WatchMovieInformation.Models.WatchList
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<form asp-controller="Watchlist" asp-action="Create" method="post">
+    <fieldset class="form-group">
+        <div class="form-group">
+            <label asp-for="MovieName" class="col-md-2 control-label"></label>
+            <input asp-for="MovieName" placeholder="Enter Movie Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Language" class="col-md-2 control-label"></label>
+            <select asp-for="Id" asp-items="@(new SelectList(ViewBag.Languages,"Id","LanguageName"))" class="form-control">
+                <option selected disabled value="">Select</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Generic" class="col-md-2 control-label"></label>
+            <select asp-for="Id" asp-items="@(new SelectList(ViewBag.Generics,"Id","GenericName"))" class="form-control">
+                <option selected disabled value="">Select</option>
+            </select>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Save"/>
+    </fieldset>
+</form>
